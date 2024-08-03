@@ -10,6 +10,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: corepack enable
+        run: corepack enable
         
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -29,14 +37,8 @@ jobs:
         continue-on-error: true
         run: yarn list
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-
 
       - name: Linting and Formatting checks
         run: yarn run lint
@@ -107,6 +109,9 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
+
+      - name: corepack enable
+        run: corepack enable
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile

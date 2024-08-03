@@ -22,6 +22,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: corepack enable
+        run: corepack enable
+
       - name: Get Token 
         uses: actions/create-github-app-token@v1
         id: get_workflow_token

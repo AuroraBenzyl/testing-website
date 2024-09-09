@@ -60,7 +60,7 @@ jobs:
         - name: Create Pull Request
          # check if the file has changed
           if: 
-          uses: peter-evans/create-pull-request@v6
+          uses: peter-evans/create-pull-request@v7
           with:
             token: ${{ steps.get_workflow_token.outputs.token }}
             title: 'chore(community): update community.json'
